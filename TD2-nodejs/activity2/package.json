@@ -1,0 +1,12 @@
+{
+  "name": "td-nodejs",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Activité 2",
+  "main": "activity2.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adam",
+  "license": "UNLICENSED"
+}

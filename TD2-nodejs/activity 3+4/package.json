@@ -1,0 +1,25 @@
+{
+  "name": "activity3",
+  "version": "1.0.0",
+  "description": "activity3 + 4",
+  "main": "activity3.js",
+  "scripts": {
+    "test": "?"
+  },
+  "repository": {
+    "type": "git",
+    "url": "?"
+  },
+  "keywords": [
+    "?"
+  ],
+  "author": "Adam",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "lodash": "^4.17.20"
+  },
+  "devDependencies": {
+    "webpack": "^4.44.2"
+  }
+}

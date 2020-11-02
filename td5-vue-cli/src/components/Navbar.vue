@@ -1,15 +1,23 @@
 <template>
   <div>
-    <h1>World</h1>
-    <h3>{{$store.getters.msg}}</h3>
+    <ul>
+      <li><router-link to="/">Accueil</router-link></li>
+      <li><router-link to="/Hello">1- Hello</router-link></li>
+      <li><router-link to="/World">2- World</router-link></li>
+    </ul>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'World',
+  name: 'Hello',
   props: {
     msg: String
+  },
+  methods:{
+    changed: function (){
+      this.$store.commit('change',this.msg)
+    }
   }
 }
 </script>

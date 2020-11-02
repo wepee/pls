@@ -1,10 +1,6 @@
 <template>
   <div>
     <h1>Bienvenue sur mon site vue.js</h1>
-    <ul>
-      <li><router-link to="/hello">Page 1</router-link></li>
-      <li><router-link to="/world">Page 2</router-link></li>
-    </ul>
   </div>
 </template>
 

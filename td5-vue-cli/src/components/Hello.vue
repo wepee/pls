@@ -1,8 +1,11 @@
 <template>
   <div>
     <h1>Hello</h1>
-    <li><router-link to="/">Retour</router-link></li>
-    <input v-model="msg" @input="changed" name="flavor">
+    <router-link to="/">Retour</router-link>
+
+    <p>Entrez un mot, vous le retrouverez par magie dans l'autre page</p>
+    <label for="msg">votre message</label>
+    <input id="msg" v-model="msg" @input="changed">
   </div>
 </template>
 

@@ -4,7 +4,7 @@
     <router-link to="/">Retour</router-link>
 
     <p>Entrez un mot, vous le retrouverez par magie dans l'autre page</p>
-    <label for="msg">votre message</label>
+    <label for="msg">votre message : </label>
     <input id="msg" v-model="msg" @input="changed">
   </div>
 </template>

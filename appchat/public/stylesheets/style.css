@@ -1,0 +1,63 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  text-align: center;
+  align-items: center;
+  background: aliceblue;
+}
+
+input {
+  margin: 5px;
+}
+
+div.jumbotron {
+  text-align: center;
+  /*width: fit-content;*/
+  width: 480px;
+  margin: 30px auto;
+  padding: 20px;
+
+}
+
+ul{
+  width: 400px;
+  margin: 15px auto;
+}
+
+.alert{
+  position: absolute;
+}
+
+ul {
+ /* transform: rotate(180deg);*/
+  overflow: auto;
+
+}
+ul > li {
+  /*transform: rotate(-180deg);*/
+  word-break: break-word;
+}
+
+label{
+  font: 18px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+#msg-jumbotron{
+  display: flex;
+  flex-flow: column-reverse;
+  height: 500px;
+}
+
+#logdiv{
+  padding: inherit;
+}
+
+#list-jumbotron{
+  float: right;
+}
+
+nav#usersonline{
+  position: absolute;
+  right: 20px;
+
+}

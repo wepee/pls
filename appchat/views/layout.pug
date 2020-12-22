@@ -1,21 +1,21 @@
 doctype html
 html
-  head
-    title= title
-    link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css')
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    head
+        title= title
+        link(rel='stylesheet', href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
 
-    div(class="alert alert-success", id="succes", role="alert") Message envoyé avec succès
-    div(class="alert alert-success", id="primary", role="alert") erreur de recuperation
-    div(class="alert alert-danger", id="danger", role="alert") erreur de recuperation
+        div(class="alert alert-success", id="succes", role="alert") Message envoyé avec succès
+        div(class="alert alert-success", id="primary", role="alert") erreur de recuperation
+        div(class="alert alert-danger", id="danger", role="alert") erreur de recuperation
 
-    nav#usersonline
-      div(class="d-inline p-2 bg-primary rounded text-white") Utilisateurs en ligne :
-      ul(class="pagination justify-content-end" id="connectedList")
-        li(class="page-item")
-          a(class="page-link") Connectez-vous pour voir qui est connecté
+        nav#usersonline
+            div(class="d-inline p-2 bg-primary rounded text-white") Utilisateurs en ligne :
+            ul(class="pagination justify-content-end" id="connectedList")
+                li(class="page-item")
+                    a(class="page-link") Connectez-vous pour voir qui est connecté
 
 
 
-  body
-    block content
+    body
+        block content

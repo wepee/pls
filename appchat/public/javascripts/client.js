@@ -1,7 +1,7 @@
-var me;
-var channel;
+var me = '';
+var channel = '';
 
-$(function() {
+$(function () {
 
     //on lance la connexion socket.io
     var socket = io();
@@ -13,7 +13,7 @@ $(function() {
     $('#succes').hide();
 
     //quand le bouton du formulaire d'identification est pressé :
-    $('#login-form').submit(function(e) {
+    $('#login-form').submit(function (e) {
         e.preventDefault(); // prevents page reloading
         me = $('#username').val();
         channel = $('#chat').val();
@@ -26,11 +26,11 @@ $(function() {
     });
 
     //Quand le bouton d'envoi de message est pressé
-    $('#msg-form').submit(function(e) {
+    $('#msg-form').submit(function (e) {
         e.preventDefault(); // prevents page reloading
         let msg = $('#msg').val(); //on va chercher le message
         $('#msg').val(''); //on vide le champ
-        socket.emit('msg', { author: me, msg : msg, time: getDate(), channel: channel }); //on emet le signal d'envoi de message
+        socket.emit('msg', {author: me, msg: msg, time: getDate(), channel: channel}); //on emet le signal d'envoi de message
         notify($('#succes')); //On affiche la notification d'envoi de message
     });
 
@@ -45,12 +45,11 @@ $(function() {
         var newUser = object.users[object.users.length - 1];
 
         //si ce n'est pas moi envoyer une notif
-        if(newUser !== me){
+        if (newUser !== me) {
             $("#primary").text(newUser + ' vient de se connecter');
             notify($('#primary'));
-        }
-        else//sinon on affiche les x derniers messages
-            writeXmessages(object.msgs,3);
+        } else//sinon on affiche les x derniers messages
+            writeXmessages(object.msgs, 3);
 
         //mettre à jour la liste des utilisateurs connectés
         setConnected(object.users);
@@ -74,31 +73,32 @@ $(function() {
 });
 
 //permet d'ecrire 1 message
-function writeMessage(msg){
+function writeMessage(msg) {
     //Si on est dans le bon channel
-    if(msg.channel === channel){
-        if(msg.author === me) //si c'est mon message on affiche en bleu
-            $('.list-group').append('<li class="list-group-item d-flex align-items-center"><span class="badge badge-primary mr-2 badge-pill">'+ msg.author + '</span>' + msg.msg + '<span class="badge badge-info align-text-right ml-auto badge-pill">' + msg.time + '</span></li>');
+    if (msg.channel === channel) {
+        if (msg.author === me) //si c'est mon message on affiche en bleu
+            $('.list-group').append('<li class="list-group-item d-flex align-items-center"><span class="badge badge-primary mr-2 badge-pill">' + msg.author + '</span>' + msg.msg + '<span class="badge badge-info align-text-right ml-auto badge-pill">' + msg.time + '</span></li>');
         else //sinon on affiche en gris
-            $('.list-group').append('<li class="list-group-item d-flex align-items-center"><span class="badge badge-secondary mr-2 badge-pill">'+ msg.author + '</span>' + msg.msg + '<span class="badge badge-info align-text-right ml-auto badge-pill">' + msg.time + '</span></li>');
-    return 1;
+            $('.list-group').append('<li class="list-group-item d-flex align-items-center"><span class="badge badge-secondary mr-2 badge-pill">' + msg.author + '</span>' + msg.msg + '<span class="badge badge-info align-text-right ml-auto badge-pill">' + msg.time + '</span></li>');
+        return 1;
     }
+    //pas de message dans ce channel
     return 0;
 }
 
-//permet d'ecrire x messages
-function writeXmessages (msgs, x){
-    var i = 0;
+//permet d'ecrire x derniers messages
+function writeXmessages(msgs, x) {
+    let i = msgs.length - 1;
     var ok = 1;
 
-        while (i < msgs.length && ok <= x) {
-            ok += writeMessage(msgs[i])
-            i++;
-        }
+    while (i > 0 && ok <= x) {
+        ok += writeMessage(msgs[i]);
+        i--;
+    }
 }
 
 //permet d'afficher une notification donnée
-function notify (object) {
+function notify(object) {
     object.show();
     setTimeout(function () {
         object.fadeOut('fast');
@@ -106,9 +106,9 @@ function notify (object) {
 }
 
 //Avoir une date à l'instant T
-function getDate () {
+function getDate() {
     let today = new Date();
-   return addZero(today.getHours()) + ":" + addZero(today.getMinutes()) + ":" + addZero(today.getSeconds());
+    return addZero(today.getHours()) + ":" + addZero(today.getMinutes()) + ":" + addZero(today.getSeconds());
 }
 
 //Ajouter le 0 devant les chiffres
@@ -119,12 +119,15 @@ function addZero(i) {
     return i;
 }
 
-//
-function setConnected(users){
+//Actualise la liste des utilisateurs connectés
+function setConnected(users) {
     $("#connectedList").remove();
     $('#usersonline').append('<ul class="pagination justify-content-end", id="connectedList">')
-    for(let i in users){
-        $("#connectedList").append('<li class="page-item"><a class="page-link">' + users[i] +'</a></li>');
+    for (let i in users) {
+        $("#connectedList").append('<li class="page-item">' + '<a class="page-link">' +
+            '<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-circle-fill" fill="#66FF00" xmlns="http://www.w3.org/2000/svg">' +
+            '<circle cx="8" cy="8" r="5"/>' +
+            '</svg>  ' + users[i] + '</a></li>');
     }
 }
 

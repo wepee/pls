@@ -1,38 +1,38 @@
 extends layout
 
 block content
-  <svg width="5em" height="5em" viewBox="0 0 16 16" class="bi bi-app-indicator" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M5.5 2A3.5 3.5 0 0 0 2 5.5v5A3.5 3.5 0 0 0 5.5 14h5a3.5 3.5 0 0 0 3.5-3.5V8a.5.5 0 0 1 1 0v2.5a4.5 4.5 0 0 1-4.5 4.5h-5A4.5 4.5 0 0 1 1 10.5v-5A4.5 4.5 0 0 1 5.5 1H8a.5.5 0 0 1 0 1H5.5z"/>
-  <path d="M16 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-  </svg>
-  h1(class="display-4")= title
+    <svg width="5em" height="5em" viewBox="0 0 16 16" class="bi bi-app-indicator" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" d="M5.5 2A3.5 3.5 0 0 0 2 5.5v5A3.5 3.5 0 0 0 5.5 14h5a3.5 3.5 0 0 0 3.5-3.5V8a.5.5 0 0 1 1 0v2.5a4.5 4.5 0 0 1-4.5 4.5h-5A4.5 4.5 0 0 1 1 10.5v-5A4.5 4.5 0 0 1 5.5 1H8a.5.5 0 0 1 0 1H5.5z"/>
+    <path d="M16 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+    </svg>
+    h1(class="display-4")= title
 
-  div.jumbotron.shadow#logdiv
-    form(method="post", id="login-form")
-      div.form-group
-        label Entrez votre login :
-        br
-        input(type="text", class="form-control", id="username")
-      div.form-group
-        label Entrez le numéro de Salon
-        br
-        input(type="text", class="form-control", id="chat")
-      input(type="submit", class="btn btn-outline-primary" id="send", value='Se connecter')
+    div.jumbotron.shadow#logdiv
+        form(method="post", id="login-form")
+            div.form-group
+                label Entrez votre login :
+                br
+                input(type="text", class="form-control", id="username")
+            div.form-group
+                label Entrez le numéro de Salon
+                br
+                input(type="text", class="form-control", id="chat")
+            input(type="submit", class="btn btn-outline-primary" id="send", value='Se connecter')
 
-  div#isLog
-    div.jumbotron.shadow#welcome-jumbotron
-        p(class="lead", id="welcome")
-        p(class="lead", id="welcome-channel")
+    div#isLog
+        div.jumbotron.shadow#welcome-jumbotron
+            p(class="lead", id="welcome")
+            p(class="lead", id="welcome-channel")
 
-    div.jumbotron.shadow#msg-jumbotron
-      form(method="post", id="msg-form")
-        input(type="text", class="form-control", placeholder="écrivez votre message", id="msg")
-        input(type="submit", class="btn btn-outline-primary btn-sm" , id="send-msg")
-      ul(class='list-group')
+        div.jumbotron.shadow#msg-jumbotron
+            form(method="post", id="msg-form")
+                input(type="text", class="form-control", placeholder="écrivez votre message", id="msg")
+                input(type="submit", class="btn btn-outline-primary btn-sm" , id="send-msg")
+            ul(class='list-group')
 
 
-  script(src="https://code.jquery.com/jquery-3.4.1.min.js")
-  script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js")
-  script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js")
-  script(src="/javascripts/client.js")
-  script(src="/socket.io/socket.io.js")
+    script(src="https://code.jquery.com/jquery-3.4.1.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js")
+    script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js")
+    script(src="/javascripts/client.js")
+    script(src="/socket.io/socket.io.js")
